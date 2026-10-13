@@ -1,0 +1,133 @@
+/* src/styles/services.css */
+
+/* ── Services header ── */
+.services-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.services-header__title {
+  font-family: var(--font-display);
+  font-size: 22px; color: var(--color-navy);
+}
+.services-header__sub { font-size: 14px; color: var(--color-muted); margin-top: 4px; }
+
+/* ── Services table ── */
+.services-table {
+  background: var(--color-white);
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+.services-table__head {
+  display: grid;
+  grid-template-columns: 32px 2fr 100px 120px 100px 90px;
+  padding: 12px 22px;
+  border-bottom: 2px solid var(--color-border);
+  background: var(--color-cream);
+  align-items: center;
+}
+.services-table__th {
+  font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--color-muted);
+}
+.services-table__row {
+  display: grid;
+  grid-template-columns: 32px 2fr 100px 120px 100px 90px;
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--color-border);
+  align-items: center;
+  transition: var(--transition);
+}
+.services-table__row:last-child { border-bottom: none; }
+.services-table__row:hover { background: var(--color-cream); }
+
+.svc-color-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.svc-name      { font-size: 14px; font-weight: 700; color: var(--color-navy); }
+.svc-dur       { font-size: 13px; color: var(--color-muted); }
+.svc-price     { font-size: 14px; font-weight: 700; color: var(--color-mint-dark); }
+.svc-actions   { display: flex; gap: 6px; }
+.svc-badge {
+  display: inline-flex; align-items: center;
+  background: var(--color-cream); border: 1px solid var(--color-border);
+  border-radius: 20px; padding: 3px 10px;
+  font-size: 11px; font-weight: 700; color: var(--color-slate);
+}
+
+/* ── Table: 7 columns (added Tip + Pac. noi) ── */
+.services-table__head,
+.services-table__row {
+  grid-template-columns: 32px 2fr 90px 110px 110px 90px 90px;
+}
+
+/* Badge variants */
+.svc-badge--consult {
+  background: var(--color-mint-bg);
+  color: var(--color-mint-dark);
+  border-color: var(--color-mint-light);
+}
+.svc-badge--new-patient {
+  background: #FEF3C7;
+  color: #D97706;
+  border-color: #FDE68A;
+}
+.svc-badge--auto {
+  background: #EDE9FE;
+  color: #7C3AED;
+  border-color: #DDD6FE;
+}
+
+/* ── Info note ── */
+.services-info-note {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--color-muted);
+  background: var(--color-cream);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+}
+.services-info-note strong { color: var(--color-navy); }
+
+/* ── Service modal toggles ── */
+.svc-toggles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  background: var(--color-cream);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  margin-top: 4px;
+}
+.svc-toggle-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+.svc-toggle-checkbox {
+  width: 16px; height: 16px;
+  margin-top: 2px;
+  accent-color: var(--color-mint);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.svc-toggle-label { display: flex; flex-direction: column; gap: 2px; }
+.svc-toggle-title { font-size: 13px; font-weight: 700; color: var(--color-navy); }
+.svc-toggle-desc  { font-size: 12px; color: var(--color-muted); }
+
+/* ── Service modal ── */
+.color-picker {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px;
+}
+.color-swatch {
+  width: 28px; height: 28px; border-radius: 50%;
+  cursor: pointer; border: 3px solid transparent;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+.color-swatch--selected { border-color: var(--color-navy); transform: scale(1.1); }
+.color-swatch:hover      { transform: scale(1.1); }

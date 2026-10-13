@@ -1,0 +1,254 @@
+/* src/styles/patients.css */
+
+/* ── Search bar ── */
+.patients-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.patients-search-wrap {
+  position: relative;
+  flex: 1;
+  max-width: 420px;
+}
+.patients-search-icon {
+  position: absolute;
+  left: 14px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+}
+.patients-search {
+  width: 100%;
+  padding: 11px 14px 11px 42px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-family: var(--font-body);
+  color: var(--color-navy);
+  background: var(--color-white);
+  outline: none;
+  transition: var(--transition);
+}
+.patients-search:focus { border-color: var(--color-mint); box-shadow: 0 0 0 3px rgba(45,212,191,.12); }
+.patients-search::placeholder { color: #CBD5E1; }
+
+.patients-count {
+  font-size: 13px; color: var(--color-muted); font-weight: 600; margin-left: auto;
+}
+
+/* ── Patients table ── */
+.patients-table {
+  background: var(--color-white);
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+.patients-table__head {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.2fr 0.8fr 0.8fr 80px;
+  padding: 12px 22px;
+  border-bottom: 2px solid var(--color-border);
+  background: var(--color-cream);
+}
+.patients-table__th {
+  font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--color-muted);
+}
+.patients-table__row {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.2fr 0.8fr 0.8fr 80px;
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--color-border);
+  align-items: center;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.patients-table__row:last-child { border-bottom: none; }
+.patients-table__row:hover { background: var(--color-cream); }
+
+.patient-name-col { display: flex; align-items: center; gap: 12px; }
+.patient-avatar {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--color-mint-dark), var(--color-mint));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 800; color: #fff;
+  flex-shrink: 0;
+}
+.patient-fullname  { font-size: 14px; font-weight: 700; color: var(--color-navy); }
+.patient-email     { font-size: 12px; color: var(--color-muted); margin-top: 1px; }
+.patients-table__td { font-size: 13px; color: var(--color-slate); }
+.td--visits { font-weight: 700; color: var(--color-navy); }
+.td--has-appt { color: var(--color-success); font-weight: 600; }
+.td--no-appt  { color: var(--color-muted); }
+
+/* ── Patient modal ── */
+.patient-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 26px;
+  border-bottom: 1px solid var(--color-border);
+}
+.patient-modal-avatar {
+  width: 56px; height: 56px;
+  background: linear-gradient(135deg, var(--color-mint-dark), var(--color-mint));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 800; color: #fff; flex-shrink: 0;
+}
+.patient-modal-name   { font-family: var(--font-display); font-size: 20px; color: var(--color-navy); }
+.patient-modal-meta   { font-size: 13px; color: var(--color-muted); margin-top: 2px; }
+.patient-modal-close  {
+  margin-left: auto;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--color-cream); border: 1.5px solid var(--color-border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; cursor: pointer; transition: var(--transition);
+}
+.patient-modal-close:hover { background: var(--color-danger-bg); border-color: #FECDD3; }
+
+.patient-modal-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 26px;
+}
+.patient-modal-tab {
+  padding: 12px 0;
+  margin-right: 28px;
+  font-size: 13px; font-weight: 700;
+  color: var(--color-muted);
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  background: none; border-top: none; border-left: none; border-right: none;
+  font-family: var(--font-body); transition: var(--transition);
+}
+.patient-modal-tab--active {
+  color: var(--color-mint-dark);
+  border-bottom-color: var(--color-mint);
+}
+.patient-modal-body { padding: 20px 26px; }
+
+.patient-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.patient-info-item label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: var(--color-muted); display: block; margin-bottom: 3px; }
+.patient-info-item span  { font-size: 14px; font-weight: 600; color: var(--color-navy); }
+
+/* ── History table ── */
+.history-row {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 60px 80px 100px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+  align-items: center;
+  font-size: 13px;
+}
+.history-row:last-child { border-bottom: none; }
+.history-row__date    { color: var(--color-muted); font-weight: 600; }
+.history-row__service { font-weight: 700; color: var(--color-navy); }
+.history-row__dur     { color: var(--color-muted); }
+.history-row__price   { font-weight: 700; color: var(--color-mint-dark); }
+
+.history-empty {
+  text-align: center; padding: 32px 0;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  color: var(--color-muted); font-size: 13px; font-weight: 600;
+}
+.history-empty p { margin: 0; }
+
+/* ── Patient history timeline (in PatientModal) ── */
+.patient-history { display: flex; flex-direction: column; gap: 16px; }
+
+.patient-history__summary {
+  display: flex;
+  gap: 20px;
+  padding: 14px 16px;
+  background: var(--color-cream);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+.patient-history__stat {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px;
+}
+.patient-history__stat-val   { font-weight: 800; color: var(--color-navy); }
+.patient-history__stat-label { color: var(--color-muted); font-weight: 600; }
+
+.patient-history__timeline { display: flex; flex-direction: column; gap: 0; }
+
+.patient-history__item {
+  display: grid;
+  grid-template-columns: 20px 52px 1fr;
+  gap: 0 12px;
+  align-items: flex-start;
+  min-height: 64px;
+}
+
+.patient-history__item-line {
+  display: flex; flex-direction: column; align-items: center;
+  padding-top: 8px;
+}
+.patient-history__item-line::before {
+  content: '';
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--color-mint);
+  border: 2px solid var(--color-white);
+  box-shadow: 0 0 0 2px var(--color-mint);
+  flex-shrink: 0;
+}
+.patient-history__item-connector {
+  width: 2px;
+  flex: 1;
+  background: var(--color-border);
+  margin-top: 4px;
+  min-height: 36px;
+}
+
+.patient-history__item-date {
+  display: flex; flex-direction: column; align-items: flex-end;
+  padding-top: 4px;
+  gap: 1px;
+}
+.patient-history__item-day   { font-size: 18px; font-weight: 800; color: var(--color-navy); line-height: 1; }
+.patient-history__item-month { font-size: 11px; font-weight: 700; color: var(--color-mint-dark); text-transform: uppercase; letter-spacing: .5px; }
+.patient-history__item-year  { font-size: 11px; color: var(--color-muted); }
+
+.patient-history__item-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  margin-bottom: 10px;
+}
+.patient-history__item-service-row {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 4px;
+}
+.patient-history__item-service { font-size: 14px; font-weight: 700; color: var(--color-navy); }
+.patient-history__item-meta {
+  display: flex; gap: 12px;
+  font-size: 12px; color: var(--color-muted); font-weight: 600;
+}
+.patient-history__item-meta span {
+  display: flex; align-items: center;
+}
+.patient-history__item-cabinet {
+  font-size: 11px; color: var(--color-muted); margin-top: 4px;
+}
+.patient-history__item--external .patient-history__item-card {
+  border-color: #E0E7FF;
+  background: #F5F7FF;
+}
+.patient-history__external-badge {
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+  background: #EEF2FF; color: #6366F1;
+  padding: 2px 7px; border-radius: 20px;
+  white-space: nowrap;
+}
